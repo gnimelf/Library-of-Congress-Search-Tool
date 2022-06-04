@@ -1,0 +1,26 @@
+
+.btn-block{
+    width: 100%;
+    margin: 10px 0;
+}
+
+/* jquery-ui modifire */
+.ui-selectmenu-button.ui-button {
+  width: 100%;
+}
+
+#search-card {
+  width: 80%;
+  margin: 20% 10%;
+  align-items: center;
+}
+
+#search-body {
+  width: 95%;
+
+  text-align: center;
+}
+
+#searhLoc {
+  margin: 10px 0;
+}

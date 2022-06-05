@@ -49,10 +49,47 @@ function displayResults(data){
     
     for(var i=0; i<dataResults.length; i++){
 
+        var card = createCard(dataResults[i]);
 
+        card.appendTo(searchResultsEl);
 
-        console.log(dataResults[i].title);
-        console.log(dataResults[i].date.split("-")[0]);
+        // console.log(dataResults[i].title);
+        // console.log(dataResults[i].date.split("-")[0]);
     }
 }
 
+function createCard(cardData){
+
+    // Create Card
+    var resultCardEl = $("<section>");
+    resultCardEl.addClass("card-body");
+
+    // Create title
+    var titleEl = $("<h2>");
+    titleEl.addClass("card-title");
+    titleEl.text(cardData.partof_title);
+
+    var dateEl = $("<p>");
+    dateEl.text(`Date: ${cardData.date.split("-")[0]}`);
+
+    var subjectEl = $("<p>");
+    subjectEl.text(`Subjects: ${cardData.subject.toString()}`);
+
+    var descriptionEl = $("<p>");
+    descriptionEl.text(`Description: ${cardData.description[0]}`);
+
+    var buttonEl = $("<button>");
+    buttonEl.text("Read more");
+    buttonEl.click(()=>{
+        window.location = cardData.url;
+    })
+
+    titleEl.appendTo(resultCardEl);
+    dateEl.appendTo(resultCardEl);
+    subjectEl.appendTo(resultCardEl);
+    descriptionEl.appendTo(resultCardEl);
+    buttonEl.appendTo(resultCardEl);
+
+    return(resultCardEl);
+
+}

@@ -9,6 +9,10 @@
   width: 100%;
 }
 
+.hide {
+  display: none;
+}
+
 #search-card {
   width: 80%;
   margin: 20% 10%;
@@ -24,3 +28,4 @@
 #searhLoc {
   margin: 10px 0;
 }
+

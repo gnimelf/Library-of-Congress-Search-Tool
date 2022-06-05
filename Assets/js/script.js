@@ -22,10 +22,21 @@ function runSearch(){
 
     fetch(searchURL)
     .then((response) => {
+        // TODO: function to handle status code that aren't 200
+
+
         return response.json();
     })
     .then((data) => {
         console.log(data);
+        displayResults(data);
     })
+}
 
+function displayResults(data){
+    var dataResults = data.results;
+    for(var i=0; i<dataResults.length; i++){
+        console.log(dataResults[i].title);
+        console.log(dataResults[i].date.split("-")[0]);
+    }
 }

@@ -11,29 +11,31 @@
     <link rel="stylesheet" href="./Assets/css/style.css">
 </head>
 <body>
-    <section id="search-card" class="card">
+    <section id="search-card" class="card search-only">
         <section id="search-body" class="card-body">
-            <h2 class="card-title">Library of Congress Search Engine</h3>
-            <input type="text" class="form-control" id="search-input" placeholder="Search!">
-            <section id="format-dropdown" class="dropdown">
-                <select name="salutation" id="salutation">
-                    <option disabled selected>Select a format...</option>
-                    <option>maps</option>
-                    <option>audio</option>
-                    <option>photos</option>
-                    <option>manuscripts</option>
-                    <option>newspapers</option>
-                    <option>film-and-videos</option>
-                    <option>notated-music</option>
-                    <option>websites</option>
-                  </select>
-            </section>
-            <button id="search-btn" type="button" class="btn btn-primary btn-md btn-block">Search</button>
-            <button id="back-btn" type="button" class="btn btn-primary btn-md btn-block">Back</button>
+            <form>
+                <h2 class="card-title">Library of Congress Search Engine</h3>
+                <input type="text" class="form-control" id="search-input" placeholder="Search!">
+                <section id="format-dropdown" class="dropdown">
+                    <select name="salutation" id="salutation">
+                        <option disabled selected>Select a format...</option>
+                        <option>maps</option>
+                        <option>audio</option>
+                        <option>photos</option>
+                        <option>manuscripts</option>
+                        <option>newspapers</option>
+                        <option>film-and-videos</option>
+                        <option>notated-music</option>
+                        <option>websites</option>
+                    </select>
+                </section>
+                <button id="search-btn" type="button" class="btn btn-primary btn-md btn-block">Search</button>
+                <button id="back-btn" type="submit" class="btn btn-md btn-block hide">Back</button>
+            </form>
         </section>
-
-    <section id="search-results">
-
+    </section>
+    <section id="search-results" class="hide">
+        search
     </section>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

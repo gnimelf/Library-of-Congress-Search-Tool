@@ -1,3 +1,7 @@
+body{
+  display: flex; 
+  justify-content: space-between;
+}
 
 .btn-block{
     width: 100%;
@@ -13,23 +17,39 @@
   display: none;
 }
 
-.show {
-  
-}
-
-#search-card {
+.search-only {
   width: 80%;
   margin: 20% 10%;
   align-items: center;
 }
 
+.show {
+  display: block;
+}
+
+#search-card::before {
+  width: 80%;
+  margin: 20% 10%;
+  align-items: center;
+}
+
+
 #search-body {
   width: 95%;
-
   text-align: center;
 }
 
-#searchLoc {
-  margin: 10px 0;
+#back-btn{
+  background-color: maroon;
+  border: maroon;
+  color: white;
 }
 
+#back-btn:hover{
+  background-color: #6b0000;
+}
+
+
+#search-results {
+  width: 85%;
+}

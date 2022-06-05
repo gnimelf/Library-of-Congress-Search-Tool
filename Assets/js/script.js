@@ -1,10 +1,14 @@
 // Selectors 
-var searchInput = document.querySelector("#search-input");
-var searchBtn = document.querySelector("#search-btn");
-var searchType = document.querySelector("#salutation");
+var searchInputEl = $("#search-input");
+var searchBtnEl = $("#search-btn");
+var backBtnEl = $("#back-btn");
+var searchTypeEl = $("#salutation");
+var searchCardEl = $("#search-card");
+var searchResultsEl = $("#search-results");
+var formEl = $("form");
 
 // Event listener
-searchBtn.addEventListener("click", runSearch);
+searchBtnEl.click(runSearch);
 
 // Select Menu
 $( "#salutation" ).selectmenu();
@@ -14,29 +18,41 @@ jsonParam = "&fo=json";
 var searchURL= '';
 
 function runSearch(){
-    searchURL=`${locBaseUrl}?q=${searchInput.value}${jsonParam}`;
+    searchResultsEl.empty();
+    
+    searchURL=`${locBaseUrl}?q=${searchInputEl.value}${jsonParam}`;
 
-    if (searchType.value !== 'Select a format...'){
-        searchURL=`${locBaseUrl}${searchType.value}/?q=${searchInput.value}${jsonParam}`;
+    if (searchTypeEl.value !== 'Select a format...'){
+        searchURL=`${locBaseUrl}${searchTypeEl.val()}/?q=${searchInputEl.val()}${jsonParam}`;
     }
 
     fetch(searchURL)
-    .then((response) => {
-        // TODO: function to handle status code that aren't 200
-
+    .then((response) => {   
 
         return response.json();
     })
     .then((data) => {
         console.log(data);
         displayResults(data);
-    })
+    }).then()
 }
 
 function displayResults(data){
+    
+
     var dataResults = data.results;
+
+    searchCardEl.removeClass("search-only");
+    searchResultsEl.removeClass("hide");
+    searchBtnEl.removeClass("hide");
+    formEl.trigger("reset");
+    
     for(var i=0; i<dataResults.length; i++){
+
+
+
         console.log(dataResults[i].title);
         console.log(dataResults[i].date.split("-")[0]);
     }
 }
+

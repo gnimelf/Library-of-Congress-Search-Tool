@@ -126,10 +126,3 @@ function createCard(cardData){
     return(resultCardEl);
 
 }
-
-// function reset(){
-//     searchResultsEl.empty();
-//     searchCardEl.removeClass("search-only");
-//     searchResultsEl.removeClass("hide");
-//     backBtnEl.removeClass("hide");
-// }

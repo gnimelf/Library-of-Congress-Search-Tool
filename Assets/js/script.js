@@ -43,20 +43,20 @@ function runSearch(){
 function displayResults(data){
 
     var dataResults = data.results;
-    searchResultsEl.empty();
     searchCardEl.removeClass("search-only");
     searchResultsEl.removeClass("hide");
     searchBtnEl.removeClass("hide");
     backBtnEl.removeClass("hide");
-    formEl.trigger("reset");
-    
+    // formEl.trigger("reset");
+
+    searchResultsEl.append(`<h3>Showing results for ${searchInputEl.val()}</h3>`);
+
     for(var i=0; i<dataResults.length; i++){
 
         console.log[i];
         var card = createCard(dataResults[i]);
-
+        
         card.appendTo(searchResultsEl);
-
     }
 }
 
@@ -70,14 +70,11 @@ function createCard(cardData){
     var subjectEl = $("<p>");
     var descriptionEl = $("<p>");
     
-    // Create Card
     resultCardEl.addClass("card-body");
     articleDate = cardData.date;
     articleDescription = cardData.description;
     articleSubject = cardData.subject
 
-
-    // Create title
     // Check the format of the search
     if (searchTypeEl.value === "newspapers"){
         titleEl.text(cardData.partof_title);
@@ -110,13 +107,14 @@ function createCard(cardData){
         descriptionEl.text = "N/A";
     }
     
-
+    // Create button
     var buttonEl = $("<button>");
     buttonEl.text("Read more");
     buttonEl.click(()=>{
         window.location = cardData.url;
     });
 
+    // Create Card
     titleEl.appendTo(resultCardEl);
     dateEl.appendTo(resultCardEl);
     subjectEl.appendTo(resultCardEl);
